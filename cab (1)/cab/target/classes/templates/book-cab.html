@@ -1,0 +1,31 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Book Cab</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Book Cab</h2>
+
+      <form th:action="@{/ride/book}" method="post" th:object="${ride}">
+        <input type="text" th:field="*{pickup}" placeholder="Pickup Location" />
+
+        <input
+          type="text"
+          th:field="*{dropLocation}"
+          placeholder="Drop Location"
+        />
+
+        <input
+          type="number"
+          step="0.1"
+          th:field="*{distance}"
+          placeholder="Distance KM"
+        />
+
+        <button type="submit">Book Ride</button>
+      </form>
+    </div>
+  </body>
+</html>
