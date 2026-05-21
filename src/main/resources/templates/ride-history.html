@@ -1,0 +1,33 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Ride History</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+  </head>
+  <body>
+    <h2>Ride History</h2>
+
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Pickup</th>
+        <th>Drop</th>
+        <th>Fare</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+      <tr th:each="ride : ${rides}">
+        <td th:text="${ride.id}"></td>
+        <td th:text="${ride.pickup}"></td>
+        <td th:text="${ride.dropLocation}"></td>
+        <td th:text="${ride.fare}"></td>
+        <td th:text="${ride.status}"></td>
+
+        <td>
+          <a th:href="@{'/ride/start/' + ${ride.id}}">Start</a>
+          <a th:href="@{'/ride/end/' + ${ride.id}}">End</a>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
