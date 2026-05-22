@@ -1,0 +1,39 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Driver Panel</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+  </head>
+  <body>
+    <h1 style="text-align: center; margin-top: 20px">Driver Dashboard</h1>
+
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Vehicle</th>
+        <th>Plate</th>
+        <th>Status</th>
+        <th>Rating</th>
+      </tr>
+
+      <tr th:each="driver : ${drivers}">
+        <td th:text="${driver.id}"></td>
+
+        <td th:text="${driver.name}"></td>
+
+        <td th:text="${driver.phone}"></td>
+
+        <td th:text="${driver.vehicle}"></td>
+
+        <td th:text="${driver.plate}"></td>
+
+        <td th:text="${driver.status}"></td>
+
+        <td th:text="${driver.rating}"></td>
+      </tr>
+    </table>
+  </body>
+</html>
